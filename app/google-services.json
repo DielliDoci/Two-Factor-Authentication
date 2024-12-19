@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "40842243291",
+    "project_id": "fa-demo-93fdd",
+    "storage_bucket": "fa-demo-93fdd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40842243291:android:d072240769c483250ff0fe",
+        "android_client_info": {
+          "package_name": "com.example.twofactorauthenticationdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCzUdrx8h0YEghWNI45V4OKcQjLB65ANs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
