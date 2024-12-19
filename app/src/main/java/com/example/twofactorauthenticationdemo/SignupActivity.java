@@ -65,7 +65,7 @@ public class SignupActivity extends AppCompatActivity {
                                 .addOnCompleteListener(dbTask -> {
                                     if (dbTask.isSuccessful()) {
                                         Toast.makeText(SignupActivity.this, "Signup successful!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(SignupActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                         finish();
                                     } else {
