@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,6 +17,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText emailInput;
     private EditText passwordInput;
     private Button signupButton;
+    private Button goToLoginButton; // New button to redirect to login
 
     private FirebaseAuth auth;
     private DatabaseReference database;
@@ -30,6 +30,7 @@ public class SignupActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         signupButton = findViewById(R.id.signupButton);
+        goToLoginButton = findViewById(R.id.goToLoginButton);
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance().getReference("Users");
@@ -53,6 +54,14 @@ public class SignupActivity extends AppCompatActivity {
                 registerUser(email, password);
             }
         });
+
+        goToLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void registerUser(String email, String password) {
@@ -65,9 +74,6 @@ public class SignupActivity extends AppCompatActivity {
                                 .addOnCompleteListener(dbTask -> {
                                     if (dbTask.isSuccessful()) {
                                         Toast.makeText(SignupActivity.this, "Signup successful!", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        finish();
                                     } else {
                                         Toast.makeText(SignupActivity.this, "Failed to save user: " + dbTask.getException().getMessage(), Toast.LENGTH_LONG).show();
                                     }
@@ -88,4 +94,3 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 }
-
