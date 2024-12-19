@@ -17,7 +17,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText emailInput;
     private EditText passwordInput;
     private Button signupButton;
-    private Button goToLoginButton; // New button to redirect to login
+    private Button goToLoginButton;
 
     private FirebaseAuth auth;
     private DatabaseReference database;
